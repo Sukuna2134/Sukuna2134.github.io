@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宿傩脚本 - Roblox脚本介绍</title>
+    <style>
+        :root {
+            --主色: #00aeff;
+            --辅色: #2a2a40;
+            --强调色: #ff6b00;
+            --文字色: #f0f0f0;
+            --背景深色: #1a1a1a;
+            --圆角: 12px;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+            background-color: var(--背景深色);
+            color: var(--文字色);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .容器 {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--主色);
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            padding: 2rem;
+            border-radius: var(--圆角);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .副标题 {
+            color: var(--强调色);
+            font-size: 1.4rem;
+            font-weight: 300;
+        }
+        
+        .功能卡片 {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--圆角);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .功能卡片:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .功能列表 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .功能项 {
+            background: rgba(40, 40, 40, 0.6);
+            padding: 1.5rem;
+            border-radius: var(--圆角);
+            border-left: 4px solid var(--主色);
+            transition: all 0.3s ease;
+        }
+        
+        .功能项:hover {
+            background: rgba(50, 50, 50, 0.8);
+            transform: scale(1.03);
+        }
+        
+        .功能项 h3 {
+            color: var(--主色);
+            margin-top: 0;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .功能项 h3::before {
+            content: "✓";
+            color: var(--强调色);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .截图区 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .截图 {
+            flex: 1;
+            min-width: 250px;
+            border-radius: var(--圆角);
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .截图:hover {
+            transform: scale(1.05);
+        }
+        
+        .截图 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .按钮 {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--主色), #0088ff);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .按钮:hover {
+            background: linear-gradient(45deg, var(--强调色), #ff8c00);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .容器 {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="容器">
+        <header>
+            <h1>宿傩脚本</h1>
+            <p class="副标题">Roblox宿傩脚本开发者</p>
+            <a href="#功能" class="按钮">查看功能</a>
+            <a href="#使用" class="按钮" style="background: linear-gradient(45deg, #6e45e2, #88d3ce);">立即使用</a>
+        </header>
+        
+        <div class="功能卡片" id="功能">
+            <h2>🌟 核心功能</h2>
+            <p>这款Roblox执行器脚本共支持30+作品 为游戏执行器用户提供了前所未有的体验</p>
+            
+            <div class="功能列表">
+                <div class="功能项">
+                    <h3>俄亥俄州</h3>
+                    <p>秒杀光环 无视护甲 自动穿甲 全枪子追 火箭筒秒全图 资产获取 飞行等</p>
+                </div>
+                
+                <div class="功能项">
+                    <h3>终极战场</h3>
+                    <p>假防 技能无CD 无布娃娃状态 无限大招 一拳超人</p>
+                </div>
+                
+                <div class="功能项">
+                    <h3>更新速度</h3>
+                    <p>用户反馈脚本问题基本上会在一天内修复</p>
+                </div>
+                
+                <div class="功能项">
+                    <h3>急速售后</h3>
+                    <p>迅速处理用户遇到的任何问题</p>
+                </div>
+                
+                <div class="功能项">
+                    <h3>完全可定制</h3>
+                    <p>所有参数均可调整 包括追踪速度/环绕半径等 适应各种游戏需求</p>
+                </div>
+                
+                <div class="功能项">
+                    <h3>性能优化</h3>
+                    <p>高效的事件处理和循环机制 确保不影响游戏运行性能。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="功能卡片" id="使用">
+            <h2>📸 宣传图</h2>
+            <div class="截图区">
+                <div class="截图">
+                    <img src="https://youke1.picui.cn/s1/2025/08/02/688e0d02e421e.png" alt="宣传图">
+                </div>
+            </div>
+        </div>
+        
+        <div class="功能卡片">
+            <h2>🚀 使用说明</h2>
+            <ol>
+                <li>此脚本只适用于Roblox执行器</li>
+            </ol>
+
+            <h3>📕 常见问题</h3>
+            <ol>
+                <li>脚本执行或连接服务器后无响应 请使用VPN连接服务器</li>
+                <li>脚本执行后操作脚本出现请联系作者提示 截图并说明自己操作并提交给作者</li>
+            </ol>
+            
+            <h4 style="color: var(--强调色); margin-top: 2rem;">官方群聊</h4>
+            <ul>
+                <li>通知一群1033606133</li>
+                <li>通知二群1054318464</li>
+                <li>交流一群1039153712</li>
+                <li>交流二群1048357198</li>
+            </ul>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="按钮" style="background: linear-gradient(45deg, #00c853, #64dd17);">下载脚本</a>
+                <a href="#" class="按钮" style="background: linear-gradient(45deg, #aa00ff, #e040fb);">查看文档</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Roblox执行器宿傩脚本 | 由宿傩打造</p>
+            <p>联系邮箱: 454244513@qq.com | 作者QQ: 454244513</p>
+        </footer>
+    </div>
+</body>
+</html>
